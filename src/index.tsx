@@ -2,11 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// @ts-ignore
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {Brewery} from "./components/Brewery";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    (
+        <Router>
+            <Switch>
+                <Route exact path='/' component={App} />
+                <Route path='/brewery/:id' component={Brewery} />
+            </Switch>
+        </Router>
+    ),
   document.getElementById('root')
 );
 

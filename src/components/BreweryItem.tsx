@@ -1,3 +1,5 @@
+// @ts-ignore
+import {Link} from "react-router-dom";
 
 interface  BreweryItemProps {
     brewery: {
@@ -15,12 +17,12 @@ interface  BreweryItemProps {
 export function BreweryItem(props: BreweryItemProps) {
 
     return (
-        <li className='brewery-item'>
+        <Link to={'/brewery/'+props.brewery.id } className='brewery-item'>
             <span>{props.brewery.name}</span>
             <span>{props.brewery.street}</span>
             <span>{props.brewery.city} {props.brewery.state} - {props.brewery.postal_code}</span>
             <span>{props.brewery.country}</span>
             <span>{props.brewery.brewery_type}</span>
-        </li>
+        </Link>
     )
 }
