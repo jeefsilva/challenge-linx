@@ -1,5 +1,6 @@
 import React, {ChangeEvent, useEffect, useState} from "react";
 import {BreweryItem} from "./BreweryItem";
+import "../styles/BreweryList.scss";
 
 interface Brewery {
     id: number;
@@ -45,25 +46,28 @@ export function BreweryList() {
 
     return (
         <>
-            <select value={type} onChange={e => handleChange(e)}>
-                <option selected value="">none</option>
-                <option value="micro">micro</option>
-                <option value="nano">nano</option>
-                <option value="regional">regional</option>
-                <option value="brewpub">brewpub</option>
-                <option value="large">large</option>
-                <option value="planning">planning</option>
-                <option value="bar">bar</option>
-                <option value="contract">contract</option>
-                <option value="proprietor">proprietor</option>
-                <option value="closed">closed</option>
-            </select>
-            <ul className="brewery-list">
+            <div className="filter">
+                <span className="filter-title">Filter: </span>
+                <select value={type} onChange={e => handleChange(e)}>
+                    <option value="">none</option>
+                    <option value="micro">micro</option>
+                    <option value="nano">nano</option>
+                    <option value="regional">regional</option>
+                    <option value="brewpub">brewpub</option>
+                    <option value="large">large</option>
+                    <option value="planning">planning</option>
+                    <option value="bar">bar</option>
+                    <option value="contract">contract</option>
+                    <option value="proprietor">proprietor</option>
+                    <option value="closed">closed</option>
+                </select>
+            </div>
+            <div className="brewery-list">
                 {breweries.map(brewery => {
                     return <BreweryItem key={brewery.id} brewery={brewery} />
                 })}
-            </ul>
-            <nav>
+            </div>
+            <nav className="paginate">
                 <button disabled={page === 1} onClick={e => changePage(e, 1)}>1</button>
                 <button disabled={page === 2} onClick={e => changePage(e, 2)}>2</button>
                 <button disabled={page === 3} onClick={e => changePage(e, 3)}>3</button>

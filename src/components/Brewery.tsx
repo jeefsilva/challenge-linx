@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 // @ts-ignore
-import { useHistory } from "react-router-dom";
-
+import { useHistory, Link } from "react-router-dom";
+import '../styles/Brewery.scss';
+import arrow from '../assets/arrow.svg';
 
 export function Brewery(props: { match: { params: { id: string ; }; }; }) {
     const [brewery, setBrewery] = useState({
@@ -36,15 +37,27 @@ export function Brewery(props: { match: { params: { id: string ; }; }; }) {
             .catch(function() {
                 history.push("/");
             });
-    }, [props.match.params.id]);
+    }, [props.match.params.id, history]);
 
     return (
-        <div>
-            <span>{brewery.name}</span>
-            <span>{brewery.street}</span>
-            <span>{brewery.city} {brewery.state} - {brewery.postal_code}</span>
-            <span>{brewery.country}</span>
-            <span>{brewery.brewery_type}</span>
+        <div className={'Brewery'}>
+            <Link to={'/' } className={'link-back'}>
+                <img className={'arrow-left'} alt={'Arrow'} src={arrow}/>
+                 Back
+            </Link>
+        <div className="brewery-card">
+            <span className="name">{brewery.name}</span>
+            <span className="type">Type: {brewery.brewery_type}</span>
+            {brewery.street === null ? '' : <span className="street">Street: {brewery.street}</span>}
+            <span className="city">City: {brewery.city}</span>
+            {brewery.state === null ? '' : <span className="state">State: {brewery.state}</span>}
+            <span className="postal-code">Postal code: {brewery.postal_code}</span>
+            <span className="country">Country: {brewery.country}</span>
+            {brewery.website_url === null ? '' : <span className="website">Website: <a className="" href={brewery.website_url}>{brewery.website_url}</a></span>}
+            {brewery.phone === null ? '' : <span className="phone">Phone: {brewery.phone}</span>}
+            {brewery.latitude === null ? '' : <span className="maps">Open in maps: <a target="_blank" href={'https://maps.google.com/?q='+brewery.latitude+','+brewery.longitude}>{brewery.latitude}, {brewery.longitude}</a></span>}
+
+        </div>
         </div>
     )
 }
