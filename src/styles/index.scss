@@ -1,0 +1,45 @@
+@import "reset";
+
+body, button, select {
+  font-family: 'Domine', serif;
+}
+
+header {
+  background-color: #2d2b2b;
+  color: white;
+  padding: 40px 160px;
+  h1 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-size: 12px;
+  }
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  background-color: #fafafa;
+  padding-top: 32px;
+  padding-bottom: 60px;
+  span {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 680px) {
+  header {
+    padding: 40px 20px;
+  }
+}
+
+@media (min-width: 681px) and (max-width: 1024px) {
+  header {
+    padding: 40px 40px;
+  }
+}
