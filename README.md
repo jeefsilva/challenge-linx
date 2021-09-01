@@ -4,16 +4,6 @@
 </h1>
 </p>
 
-### Tópicos
-
-:small_blue_diamond: [Descrição do projeto](#descrição-do-projeto-star)
-
-:small_blue_diamond: [Pré-requisitos](#pré-requesitos)
-
-:small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
-
-:small_blue_diamond: [Linguagens, dependencias, apis e libs utilizadas ](#linguagens-dependencias-e-libs-utilizadas-books)
-
 ## Descrição do projeto :star:
 
 <p align="justify">
